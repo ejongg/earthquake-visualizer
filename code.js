@@ -1,4 +1,6 @@
 (function() {
+  var quakeCount = 0;
+
   var quakes = Rx.Observable
     .interval(5000)
     .flatMap(function() {
@@ -23,6 +25,11 @@
     });
 
   quakes.subscribe(function(quake) {
+    ++quakeCount;
+
+    var count = document.getElementById('count');
+    count.innerHTML = quakeCount;
+
     L.circle([quake.lat, quake.lng], quake.size)
     .on('click', function (e) {
         e.target.bindPopup(quake.place).openPopup();

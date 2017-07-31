@@ -22,10 +22,22 @@
         #map {
             height: 100%;
         }
+
+        h1 {
+            text-align: right;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 0;
+            padding: 15;
+        }
     </style>
 </head>
 
 <body>
+    <h1>Earthquake count: <span id="count"></span></h1>
     <div id="map"></div>
 
     <script>
